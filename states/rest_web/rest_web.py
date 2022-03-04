@@ -34,7 +34,7 @@ def searchzip(searchzip):
 
 #update state database population for a specified state
 @app.route('/updatezippop/<updatezip> <updatePOP>')
-def updatezippop(updateSTATE, updatePOP):
+def updatezippop(updatezip, updatePOP):
     cursor.execute("SELECT * FROM `zipcodes` WHERE zip=%s", [updatezip])
     test = cursor.rowcount
     if test != 1:
