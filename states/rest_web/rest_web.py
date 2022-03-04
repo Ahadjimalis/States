@@ -20,7 +20,7 @@ conn = mysql.connector.connect(user='root', password='',
                                buffered = True)
 cursor = conn.cursor()
 
-#Search state database
+#Search zip database
 @app.route('/searchzip/<searchzip>')
 def searchzip(searchzip):
     # Get data from database
@@ -32,7 +32,7 @@ def searchzip(searchzip):
         searched = cursor.fetchall()
         return 'Success! Here you go: %s' % searched
 
-#update state database population for a specified state
+#update zip database population for a specified state
 @app.route('/updatezippop/<updatezip> <updatePOP>')
 def updatezippop(updatezip, updatePOP):
     cursor.execute("SELECT * FROM `zipcodes` WHERE zip=%s", [updatezip])
